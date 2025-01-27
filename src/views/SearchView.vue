@@ -3,14 +3,20 @@
         <img src="../assets/bar_hero.png" class="img-fluid object-fit-cover w-100" style="height:30vh">
         <div class="container">
             <div class="d-flex justify-content-center align-items-center mt-5">
-                <div class="input-wrapper w-100">
-                    <input type="text" placeholder="Search for a drink ..." name="text" class="input w-100" v-model="inputStr">
+                <div class="input-wrapper w-75">
+                    <input
+                        type="text"
+                        placeholder="Search for a drink ..."
+                        name="text"
+                        class="input w-100" v-model="inputStr"
+                        @keydown.enter="searchHandler"
+                    >
                 </div>
                 <button class="ms-3">
                     <span class="button_top" @click="searchHandler"> Search </span>
                 </button>
             </div>
-            <div class="row w-100 mt-3" style="display: flex; flex-wrap: wrap;">
+            <div class="row w-100 mt-3 d-flex m-0">
                 <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(cocktail, index) in searchResult" :key="index">
                     <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
                 </div>

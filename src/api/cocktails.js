@@ -7,3 +7,9 @@ export const search = (name) => request({
     params: {s: name}
 });
 
+
+export const recipe = (id) => request({
+    url: '/lookup.php',
+    method: 'GET',
+    params: {i: id}
+});

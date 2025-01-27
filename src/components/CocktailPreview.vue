@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <RouterLink :to="`/recipe/${cockTail.idDrink}`"  class="text-decoration-none ">
         <div class="card h-100">
             <img :src="cockTail.strDrinkThumb">
             <div class="card-body">
@@ -12,7 +12,7 @@
                 <button class="rounded-3 btn btn-secondary my-1 btn-sm disabled mx-2" v-if="cockTail.strIBA">{{ cockTail.strIBA }}</button>
             </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <script setup>

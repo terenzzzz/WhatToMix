@@ -5,7 +5,7 @@
         class="navbar-brand fs-3 fw-bold primary text-decoration-none d-flex align-items-center"
         to="/"
       >
-          <img src="@/assets/logo.png" class="img-fluid" style="width: 50px">
+          <img src="@/assets/logo.png" class="img-fluid" style="width: 30px">
           <strong class="ms-2">WhatToMix</strong>
       </router-link>
 

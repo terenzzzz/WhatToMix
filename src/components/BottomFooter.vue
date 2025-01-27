@@ -1,6 +1,6 @@
 
 <template>
-  <div id="bottomFooted" class="row p-5" >
+  <div id="bottomFooted" class="row px-5" >
     <div class="d-none d-md-block col-md-5 d-flex flex-column">
       <img src="@/assets/logo.png" class="img-fluid" style="width: 64px">
     </div>

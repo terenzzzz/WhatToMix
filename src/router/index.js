@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashBoardView from '../views/DashBoardView.vue'
 import SearchView from "@/views/SearchView.vue";
+import RecipeView from "@/views/RecipeView.vue";
 
 
 const router = createRouter({
@@ -17,6 +18,11 @@ const router = createRouter({
       path: '/search',
       name: 'search',
       component: SearchView
+    },
+    {
+      path: '/recipe/:id',
+      name: 'recipe',
+      component: RecipeView
     },
   ],
 })
