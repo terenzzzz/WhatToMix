@@ -8,7 +8,7 @@
                 <div class="d-flex justify-content-between align-items-center border-bottom">
                     <div class="d-flex flex-column">
                         <h1 class="m-0">{{recipeDetail.strDrink}}</h1>
-                        <p class="text-danger m-0">{{recipeDetail.strCategory}}; {{recipeDetail.strIBA}}</p>
+                        <p class="text-danger m-0">{{recipeDetail.strCategory}}<span v-if="recipeDetail.strIBA">;</span> {{recipeDetail.strIBA}}</p>
                     </div>
 
                     <div v-if="recipeDetail.strGlass" class="d-flex flex-column align-items-center">
@@ -23,13 +23,16 @@
 
                 <div class="row mt-5">
                     <div class="col-4" v-for="(ingredient, index) in filteredIngredients" :key="index">
-                        <div class="d-flex justify-content-center">
-                            <img
-                                :src="`https://www.thecocktaildb.com/images/ingredients/${encodeURIComponent(ingredient.name)}-small.png`"
-                                class="img-fluid"
-                            />
-                        </div>
-                        <p class="text-center">{{ ingredient.measure }} {{ ingredient.name }}</p>
+                        <router-link :to="`/ingredient/${ingredient.name}`" style="text-decoration: none; color: black">
+                            <div class="d-flex justify-content-center">
+                                <img
+                                    :src="`https://www.thecocktaildb.com/images/ingredients/${encodeURIComponent(ingredient.name)}-small.png`"
+                                    class="img-fluid"
+                                />
+                            </div>
+                            <p class="text-center">{{ ingredient.measure }} {{ ingredient.name }}</p>
+                        </router-link>
+
                     </div>
                 </div>
 

@@ -10,7 +10,7 @@
           <div class="col-4">Cookie Policy</div>
       </div>
       <el-divider />
-      <div class="col-12"><p class="text-muted">©Copyright MeowID 2025. All rights reserved.</p></div>
+      <div class="col-12"><p class="text-muted">©Copyright WhatToMix 2025. All rights reserved.</p></div>
   </div>
 </template>
 

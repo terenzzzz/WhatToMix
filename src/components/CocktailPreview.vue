@@ -3,13 +3,17 @@
         <div class="card h-100">
             <img :src="cockTail.strDrinkThumb">
             <div class="card-body">
-                <h4 class="text-danger">{{cockTail.strCategory}} </h4>
-                <h1>{{cockTail.strDrink}}</h1>
+                <h5 class="text-danger">{{cockTail.strCategory}} </h5>
+                <h3>{{cockTail.strDrink}}</h3>
 
             </div>
-            <div class="card-footer">
-                <button class="rounded-3 btn btn-secondary my-1 btn-sm disabled">{{ cockTail.strAlcoholic }}</button>
-                <button class="rounded-3 btn btn-secondary my-1 btn-sm disabled mx-2" v-if="cockTail.strIBA">{{ cockTail.strIBA }}</button>
+            <div class="card-footer" v-if="cockTail.strAlcoholic || cockTail.strIBA">
+                <button class="rounded-3 btn btn-secondary my-1 btn-sm disabled" v-if="cockTail.strAlcoholic">
+                    {{ cockTail.strAlcoholic }}
+                </button>
+                <button class="rounded-3 btn btn-secondary my-1 btn-sm disabled mx-2" v-if="cockTail.strIBA">
+                    {{ cockTail.strIBA }}
+                </button>
             </div>
         </div>
     </RouterLink>
@@ -24,9 +28,6 @@ const props = defineProps({
     },
 
 });
-
-
-console.log(props.cockTail);
 
 </script>
 
