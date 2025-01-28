@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item" >
-            <router-link to="/login" class="item text-decoration-none text-primary">
+            <router-link to="/mixMatch" class="item text-decoration-none text-primary">
                 MixMatch
             </router-link>
             </li>

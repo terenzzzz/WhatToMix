@@ -3,6 +3,7 @@ import DashBoardView from '../views/DashBoardView.vue'
 import SearchView from "@/views/SearchView.vue";
 import RecipeView from "@/views/RecipeView.vue";
 import IngredientView from "@/views/IngredientView.vue";
+import MixMatchView from "@/views/MixMatchView.vue";
 
 
 const router = createRouter({
@@ -30,6 +31,12 @@ const router = createRouter({
       name: 'ingredient',
       component: IngredientView
     },
+    {
+      path: '/mixMatch',
+      name: 'mixMatch',
+      component: MixMatchView
+    },
+
   ],
 })
 

@@ -1,6 +1,11 @@
 <template>
     <div>
-        <img src="../assets/bar_hero.png" class="img-fluid object-fit-cover w-100" style="height:30vh">
+        <div class="position-relative">
+            <img src="../assets/bar_hero.png" class="img-fluid object-fit-cover w-100" style="height:30vh; filter: blur(2px)">
+            <h1 class="position-absolute text-center text-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                Search What you Like
+            </h1>
+        </div>
         <div class="container">
             <div class="d-flex justify-content-center align-items-center mt-5">
                 <div class="input-wrapper w-75">
