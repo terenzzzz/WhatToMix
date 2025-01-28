@@ -71,6 +71,13 @@ export const filterByGlass = (glass) => request({
         g: glass,
     },
 });
+export const filterByAlcoholic = (alcoholic) => request({
+    url: '/filter.php',
+    method: 'GET',
+    params: {
+        a: alcoholic,
+    },
+});
 
 export const filterByMultipleParams = (ingredients, alcoholic, categories, glassType) => request({
     url: '/filter.php',
