@@ -16,11 +16,29 @@
                     <span class="button_top" @click="searchHandler"> Search </span>
                 </button>
             </div>
-            <div class="row w-100 mt-3 d-flex m-0">
-                <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(cocktail, index) in searchResult" :key="index">
+
+            <div class="mt-5 d-flex justify-content-center">
+                <span :class="isIngredient? '' : 'text-danger fw-bold'">Cocktail</span>
+                <div class="mx-3">
+                <RockerSwitch v-model:checked="isIngredient"></RockerSwitch>
+                </div>
+                <span :class="isIngredient? 'text-danger fw-bold' : ''">Ingredient</span>
+            </div>
+
+
+
+            <div class="row w-100 mt-3 d-flex m-0" v-if="searchCocktailResult.length>0">
+                <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(cocktail, index) in searchCocktailResult" :key="index">
                     <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
                 </div>
             </div>
+
+            <div class="row w-100 mt-3 d-flex m-0" v-if="searchIngredientResult && searchIngredientResult.length>0">
+                <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(ingredient, index) in searchIngredientResult" :key="index">
+                    <IngredientPreview :ingredient="ingredient" style="height: 100%;" />
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -32,15 +50,32 @@
 <script setup>
 import InputBox from "@/components/InputBox.vue";
 import {ref} from "vue";
-import {search} from "@/api/cocktails.js";
+import {search, searchIngredientByName} from "@/api/cocktails.js";
 import CocktailPreview from "@/components/CocktailPreview.vue";
+import RockerSwitch from "@/components/RockerSwitch.vue";
+import IngredientPreview from "@/components/IngredientPreview.vue";
 
 let inputStr = ref("")
-let searchResult = ref([])
+let searchCocktailResult = ref([])
+let searchIngredientResult = ref([])
+const isIngredient = ref(false); // 用于接收子组件的状态
 
 async function searchHandler() {
-    const response = await search(inputStr.value)
-    searchResult.value = response.data.drinks
+    searchCocktailResult.value = []
+    searchIngredientResult.value = []
+
+
+    if (inputStr.value){
+        if (isIngredient.value){
+            const response = await searchIngredientByName(inputStr.value); // 调用 API 获取食材详情
+            searchIngredientResult.value = response.data.ingredients;
+            console.log(response.data)
+        }else{
+            const response = await search(inputStr.value)
+            searchCocktailResult.value = response.data.drinks
+        }
+    }
+
 }
 
 
