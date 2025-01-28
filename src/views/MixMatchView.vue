@@ -100,13 +100,6 @@ async function applyFilter() {
         filteredResult.value = response.data.drinks.flat();
     }
 }
-
-// 方法处理 strGlass 去掉空格并转小写
-const getGlassImage = (glassName) => {
-    const formattedName = glassName.replace(/\s+/g, '').toLowerCase();
-    // 使用 import.meta.url 动态处理图片路径
-    return new URL(`../assets/glass/${formattedName}.png`, import.meta.url).href;
-};
 </script>
 
 

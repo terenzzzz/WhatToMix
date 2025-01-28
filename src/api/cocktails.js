@@ -64,6 +64,13 @@ export const filterByMultipleIngredient = (ingredients) => request({
         i: ingredients.join(','),  // 配料，多个配料用逗号分隔，无需编码
     },
 });
+export const filterByGlass = (glass) => request({
+    url: '/filter.php',
+    method: 'GET',
+    params: {
+        g: glass,
+    },
+});
 
 export const filterByMultipleParams = (ingredients, alcoholic, categories, glassType) => request({
     url: '/filter.php',
@@ -75,6 +82,8 @@ export const filterByMultipleParams = (ingredients, alcoholic, categories, glass
         g: glassType.join(','),    // 酒杯类型（Glass Type）
     },
 });
+
+
 
 // https://www.thecocktaildb.com/api/json/v2/8673533/filter.php?i=Gin&a=Alcoholic&c=Cocktail&g=Highball%2520glass //不可行
 // https://www.thecocktaildb.com/api/json/v2/8673533/filter.php?i=Gin&a=Alcoholic&c=Cocktail&g=Highball+glass  //可行

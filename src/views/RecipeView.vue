@@ -69,9 +69,12 @@ onMounted(async () => {
     console.log(recipeDetail.value);
 });
 
-// 方法处理 strGlass 去掉空格并转小写
 const getGlassImage = (glassName) => {
-    const formattedName = glassName.replace(/\s+/g, '').toLowerCase();
+    const formattedName = glassName
+        .replace(/\s+/g, '') // 去掉空格
+        .replace(/\//g, '_') // 将斜杠 / 替换为下划线 _
+        .toLowerCase();      // 转小写
+
     // 使用 import.meta.url 动态处理图片路径
     return new URL(`../assets/glass/${formattedName}.png`, import.meta.url).href;
 };

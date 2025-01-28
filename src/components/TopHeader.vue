@@ -32,6 +32,24 @@
             </router-link>
             </li>
 
+            <li class="nav-item" >
+                <router-link to="/glass" class="item text-decoration-none text-primary">
+                    Glass
+                </router-link>
+            </li>
+
+            <li class="nav-item" >
+                <router-link to="/category" class="item text-decoration-none text-primary">
+                    Category
+                </router-link>
+            </li>
+
+            <li class="nav-item" >
+                <router-link to="/Alcoholic" class="item text-decoration-none text-primary">
+                    Alcoholic
+                </router-link>
+            </li>
+
         </ul>
       </div>
     </div>

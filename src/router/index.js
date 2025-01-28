@@ -4,6 +4,9 @@ import SearchView from "@/views/SearchView.vue";
 import RecipeView from "@/views/RecipeView.vue";
 import IngredientView from "@/views/IngredientView.vue";
 import MixMatchView from "@/views/MixMatchView.vue";
+import GlassView from "@/views/GlassView.vue";
+import CategoryView from "@/views/CategoryView.vue";
+import AlcoholicView from "@/views/AlcoholicView.vue";
 
 
 const router = createRouter({
@@ -35,6 +38,21 @@ const router = createRouter({
       path: '/mixMatch',
       name: 'mixMatch',
       component: MixMatchView
+    },
+    {
+      path: '/glass',
+      name: 'glass',
+      component: GlassView
+    },
+    {
+      path: '/category',
+      name: 'category',
+      component: CategoryView
+    },
+    {
+      path: '/Alcoholic',
+      name: 'Alcoholic',
+      component: AlcoholicView
     },
 
   ],
