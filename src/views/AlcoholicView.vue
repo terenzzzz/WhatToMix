@@ -9,7 +9,7 @@
                 Choose Alcoholic you want
             </h1>
         </div>
-        <div class="container mt-3">
+        <div class="container mt-3 ">
             <!-- 按钮组 -->
             <div class="btn-group d-flex">
                 <button
@@ -18,7 +18,7 @@
                     @click="selectAlcoholic('Alcoholic')"
                     type="button"
                 >
-                    Alcoholic
+                    <span>Alcoholic</span>
                 </button>
                 <button
                     class="btn middle"
@@ -26,7 +26,7 @@
                     @click="selectAlcoholic('Non alcoholic')"
                     type="button"
                 >
-                    Non alcoholic
+                    <span>Non alcoholic</span>
                 </button>
                 <button
                     class="btn right"
@@ -34,9 +34,12 @@
                     @click="selectAlcoholic('Optional alcohol')"
                     type="button"
                 >
-                    Optional alcohol
+                    <span>Optional alcohol</span>
                 </button>
             </div>
+
+
+
             <el-divider />
             <!-- 展示鸡尾酒结果 -->
             <div class="row w-100 mt-3 d-flex m-0" v-if="result.length > 0">
@@ -59,11 +62,10 @@ const selectedAlcoholic = ref('Alcoholic'); // 默认选中 Alcoholic
 const result = ref([]);
 
 // 处理选择逻辑
-const selectAlcoholic = (alcoholic) => {
-    selectedAlcoholic.value = alcoholic;
+const selectAlcoholic = (value) => {
     // 根据选中的类型更新 result 数据
-    console.log('Selected type:', alcoholic); // 可在这里调用 API 或更新数据逻辑
-    applyFilter(alcoholic)
+    console.log('Selected type:', value); // 这里直接获取新的值
+    applyFilter(value);
 };
 
 onMounted(async () => {
@@ -82,6 +84,7 @@ async function applyFilter(alcoholic) {
 
 
 <style scoped lang="css">
+
 .btn {
     font: inherit;
     background-color: #f0f0f0;
