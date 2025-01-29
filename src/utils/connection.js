@@ -3,9 +3,9 @@
 
 
 // Imported from .env File, Please set the key before using
-export const API_URL = import.meta.env.VITE_API_KEY
+export const API_URL = import.meta.env.VITE_API_URL
 
 
 
 // Backup API Service
-// export const API_URL_Rapid = 'https://the-cocktail-db.p.rapidapi.com'
+export const API_URL_Rapid = 'https://the-cocktail-db.p.rapidapi.com'
