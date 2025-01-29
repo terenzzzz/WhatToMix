@@ -11,4 +11,7 @@ export default defineConfig({
     }
   },
   base: './',
+  build: {
+    assetsInlineLimit: 0, // 让所有图片都作为独立文件
+  },
 })
