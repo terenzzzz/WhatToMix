@@ -1,15 +1,11 @@
-// Development
-// export const API_URL = 'http://localhost:5000'
+
+// export const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1' // Free API(https://www.thecocktaildb.com)
 
 
-// Deploy
-// export const API_URL = 'https://www.thecocktaildb.com/api/json/v1/1' // 免费API
-
-
-// Arely的API KEY  https://github.com/ArelySkywalker
-export const API_URL = 'https://www.thecocktaildb.com/api/json/v2/8673533' // 免费API
+// Imported from .env File, Please set the key before using
+export const API_URL = import.meta.env.VITE_API_KEY
 
 
 
-
-export const API_URL_Rapid = 'https://the-cocktail-db.p.rapidapi.com'
+// Backup API Service
+// export const API_URL_Rapid = 'https://the-cocktail-db.p.rapidapi.com'
