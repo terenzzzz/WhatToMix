@@ -54,7 +54,7 @@
 
 <script setup>
 import InputBox from "@/components/InputBox.vue";
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import {search, searchIngredientByName} from "@/api/cocktails.js";
 import CocktailPreview from "@/components/CocktailPreview.vue";
 import RockerSwitch from "@/components/RockerSwitch.vue";
@@ -64,6 +64,11 @@ let inputStr = ref("")
 let searchCocktailResult = ref([])
 let searchIngredientResult = ref([])
 const isIngredient = ref(false); // 用于接收子组件的状态
+
+// 监听 isIngredient 的变化
+watch(isIngredient, (newVal, oldVal) => {
+    searchHandler()
+});
 
 async function searchHandler() {
     searchCocktailResult.value = []
