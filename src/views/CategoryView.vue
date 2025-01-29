@@ -2,18 +2,30 @@
 <template>
     <div>
         <div class="position-relative">
-            <img src="../assets/bar_hero_2.png" class="img-fluid object-fit-cover w-100" style="height:30vh; filter: blur(5px)">
+            <img src="../assets/bar_hero_4.png" class="img-fluid object-fit-cover w-100" style="height:30vh; filter: blur(5px)">
             <h1 class="position-absolute text-center text-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                Pick a Glass you wanna use
+                Discover Categories
             </h1>
         </div>
         <div class="container mt-3">
-            <div class="btn-group">
-                <button class="btn left" type="button">Left</button>
-                <button class="btn middle" type="button">Middle</button>
-                <button class="btn right" type="button">Right</button>
+            <div class="row mt-3 ">
+                <strong>Categories</strong>
+                <el-select
+                    v-model="selectedCategory"
+                    placeholder="Select Category you want to discover"
+                    size="large"
+                    clearable
+                    @change="applyFilter"
+                >
+                    <el-option
+                        v-for="item in categories"
+                        :key="item.strCategory"
+                        :label="item.strCategory"
+                        :value="item.strCategory"
+                    />
+                </el-select>
             </div>
-            <el-divider />
+            <el-divider v-if="result.length>0"/>
             <div class="row w-100 mt-3 d-flex m-0" v-if="result.length>0">
                 <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(cocktail, index) in result" :key="index">
                     <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
@@ -26,44 +38,25 @@
 
 <script setup>
 import {onMounted, ref} from "vue";
-import {filterByGlass, listAlcoholic, listGlasses, listIngredients} from "@/api/cocktails.js";
+import {filterByCategory, listCategories} from "@/api/cocktails.js";
 import CocktailPreview from "@/components/CocktailPreview.vue";
 
-const glasses = ref([])
-const selectedGlass = ref('')
+const categories = ref([])
+const selectedCategory = ref('')
 
 const result = ref([])
 
 onMounted(async () => {
-    const response = await listAlcoholic(); // 调用 API 获取类型数据
-    glasses.value = response.data.drinks;
+    const response = await listCategories(); // 调用 API 获取类型数据
+    categories.value = response.data.drinks;
 });
 
-function selectGlass(glassName) {
-    // 如果已选中相同的卡片，再次点击时取消选择
-    selectedGlass.value = selectedGlass.value === glassName ? '' : glassName;
-    applyFilter(glassName)
-}
-
-async function applyFilter(glassName) {
-    console.log(glassName.replace(/\s+/g, '_').toLowerCase() )// 将斜杠 / 替换为下划线 _)
-    const response = await filterByGlass(glassName.replace(/\s+/g, '_').toLowerCase() );
+async function applyFilter(category) {
+    const response = await filterByCategory(category);
     result.value = response.data.drinks;
-    console.log(response.data);
 }
 
 
-const getGlassImage = (glassName) => {
-
-    const formattedName = glassName
-        .replace(/\s+/g, '') // 去掉空格
-        .replace(/\//g, '_') // 将斜杠 / 替换为下划线 _
-        .toLowerCase();      // 转小写
-
-
-    // 使用 import.meta.url 动态处理图片路径
-    return new URL(`../assets/glass/${formattedName}.png`, import.meta.url).href;
-};
 </script>
 
 

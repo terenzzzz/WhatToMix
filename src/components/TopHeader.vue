@@ -21,31 +21,31 @@
         <ul class="navbar-nav d-flex align-items-center">
 
             <li class="nav-item" >
-                <router-link to="/search" class="item text-decoration-none text-primary">
+                <router-link to="/search" class="item text-decoration-none ">
                     Search
                 </router-link>
             </li>
 
             <li class="nav-item" >
-            <router-link to="/mixMatch" class="item text-decoration-none text-primary">
+            <router-link to="/mixMatch" class="item text-decoration-none ">
                 MixMatch
             </router-link>
             </li>
 
             <li class="nav-item" >
-                <router-link to="/glass" class="item text-decoration-none text-primary">
+                <router-link to="/glass" class="item text-decoration-none ">
                     Glass
                 </router-link>
             </li>
 
             <li class="nav-item" >
-                <router-link to="/category" class="item text-decoration-none text-primary">
+                <router-link to="/category" class="item text-decoration-none ">
                     Category
                 </router-link>
             </li>
 
             <li class="nav-item" >
-                <router-link to="/Alcoholic" class="item text-decoration-none text-primary">
+                <router-link to="/Alcoholic" class="item text-decoration-none ">
                     Alcoholic
                 </router-link>
             </li>
