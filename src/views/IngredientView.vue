@@ -33,7 +33,7 @@
             </div>
         </div>
         <div id="Result" class="row mt-4">
-            <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(cocktail, index) in cocktails" :key="index">
+            <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-3" v-for="(cocktail, index) in cocktails" :key="index">
                 <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
             </div>
         </div>

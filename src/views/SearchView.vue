@@ -33,7 +33,7 @@
 
 
             <div class="row w-100 mt-3 d-flex m-0" v-if="searchCocktailResult.length>0">
-                <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(cocktail, index) in searchCocktailResult" :key="index">
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-3" v-for="(cocktail, index) in searchCocktailResult" :key="index">
                     <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
                 </div>
             </div>
