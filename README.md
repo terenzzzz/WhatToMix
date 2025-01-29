@@ -1,5 +1,66 @@
-# Vue 3 + Vite
+# WhatToMix
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+本应用是一款专为鸡尾酒爱好者设计的在线查询和推荐工具。用户可以通过输入已有的材料、偏好或特定条件，快速获取适合的鸡尾酒配方，同时提供详细的配方展示，帮助用户轻松制作和享受美味的鸡尾酒。本应用基于 TheCocktailDB API，提供丰富的鸡尾酒配方数据库和精准的查询推荐服务。  
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+The Cocktail DB API ( https://www.thecocktaildb.com/api.php )  
+项目地址: ( https://terenzzzz.cn/whatToMix )
+
+# 核心功能
+### 1. 查询功能
+
+- **根据名字查询鸡尾酒**：用户可输入鸡尾酒名称，快速获取相关配方信息。
+- **根据名字查询材料**：用户可输入材料名称，查看该材料可用于哪些鸡尾酒配方。
+
+### 2. 材料匹配推荐（MixMatch）
+
+- 用户可输入自己拥有的材料，系统将智能推荐可行的鸡尾酒配方。
+
+### 3. 杯型筛选
+
+- 用户可选择特定的杯型，系统将推荐适合该杯型的鸡尾酒饮品。
+
+### 4. 类别筛选
+
+- 用户可根据鸡尾酒的类型（如长饮、高球、经典等）筛选合适的配方。
+
+### 5. 是否带酒精筛选
+
+- 用户可选择是否包含酒精，系统将推荐符合需求的鸡尾酒饮品。
+
+### 6. 配方展示
+
+- **配料清单**：详细列出所需材料的名称及用量。
+- **制作步骤**：提供分步说明，帮助用户轻松制作。
+- **使用杯具**：指明该配方适用的杯型。
+- **酒的基本信息**：酒名字，类型， IBA等。
+
+## 从 GitHub 拉取项目并运行
+
+1. **克隆项目**：
+    
+    ```
+    git@github.com:terenzzzz/WhatToMix.git
+    cd WhatToMix
+    ```
+    
+2. **安装依赖**：
+    
+    ```
+    npm install
+    ```
+    
+3. **配置环境变量**：
+    - 在项目根目录创建 `.env` 文件，并添加以下内容：
+        
+        ```
+        VITE_API_URL=API_URL
+        ```
+        
+4. **运行项目**：
+    
+    ```
+    npm run dev
+    ```
+    
+    - 运行后，打开浏览器访问 `http://localhost:5173/`（默认 Vite 端口）。
+
