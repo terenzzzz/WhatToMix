@@ -1,5 +1,7 @@
 # WhatToMix
 
+![截图](./screenshot/WhatToMix.png)
+
 本应用是一款专为鸡尾酒爱好者设计的在线查询和推荐工具。用户可以通过输入已有的材料、偏好或特定条件，快速获取适合的鸡尾酒配方，同时提供详细的配方展示，帮助用户轻松制作和享受美味的鸡尾酒。本应用基于 TheCocktailDB API，提供丰富的鸡尾酒配方数据库和精准的查询推荐服务。
 
 This application is an online query and recommendation tool designed for cocktail enthusiasts. Users can quickly obtain suitable cocktail recipes by entering available ingredients, preferences, or specific conditions. It also provides detailed recipe displays to help users easily create and enjoy delicious cocktails. This application is based on TheCocktailDB API, offering a rich cocktail recipe database and accurate query recommendations.
@@ -81,3 +83,14 @@ Project URL: ( https://terenzzzz.cn/whatToMix )
     
     - 运行后，打开浏览器访问 `http://localhost:5173/`（默认 Vite 端口）。
     - After running, open a browser and visit `http://localhost:5173/` (default Vite port).
+
+# 截图预览(Screenshots)
+![截图](./screenshot/dashboard_matting.png)
+![截图](./screenshot/search_matting.png)
+![截图](./screenshot/mixMatch_matting.png)
+![截图](./screenshot/glass_matting.png)
+![截图](./screenshot/category_matting.png)
+![截图](./screenshot/alcoholic_matting.png)
+
+![截图](./screenshot/recipe_matting.png)
+![截图](./screenshot/ingredient_matting.png)
