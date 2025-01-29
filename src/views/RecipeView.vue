@@ -19,7 +19,7 @@
                 </div>
 
 
-                <img :src="recipeDetail.strDrinkThumb" class="img-fluid object-fit-cover d-lg-none mt-2">
+                <BannerCard :img="recipeDetail.strDrinkThumb" :text="recipeDetail.strAlcoholic" class="img-fluid object-fit-cover d-lg-none mt-4"></BannerCard>
 
                 <div class="row mt-5">
                     <div class="col-4" v-for="(ingredient, index) in filteredIngredients" :key="index">
