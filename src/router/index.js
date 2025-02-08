@@ -7,11 +7,12 @@ import MixMatchView from "@/views/MixMatchView.vue";
 import GlassView from "@/views/GlassView.vue";
 import CategoryView from "@/views/CategoryView.vue";
 import AlcoholicView from "@/views/AlcoholicView.vue";
+import DrawView from "@/views/DrawView.vue";
 
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL), //开发使用根路径
-  history: createWebHistory('/whatToMix/'), //部署使用 /meowid/ 路径作为 应用的基础路径
+  history: createWebHistory('/whatToMix/'), //部署使用 /whatToMix/ 路径作为 应用的基础路径
 
   routes: [
     {
@@ -53,6 +54,11 @@ const router = createRouter({
       path: '/Alcoholic',
       name: 'Alcoholic',
       component: AlcoholicView
+    },
+    {
+      path: '/Draw',
+      name: 'Draw',
+      component: DrawView
     },
 
   ],

@@ -66,7 +66,6 @@ onMounted(async () => {
     const id = route.params.id; // 从路由参数中获取 id
     const response = await recipe(id); // 调用 API 获取配方详情
     recipeDetail.value = response.data.drinks[0]; // 保存数据到 recipeDetail
-    console.log(recipeDetail.value);
 });
 
 const getGlassImage = (glassName) => {

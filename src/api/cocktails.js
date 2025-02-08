@@ -16,7 +16,7 @@ export const recipe = (id) => request({
 });
 
 
-export const randomCocktail = () => request({
+export const randomCocktails = () => request({
     url: '/random.php',
     method: 'GET',
 });

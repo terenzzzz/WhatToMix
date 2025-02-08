@@ -13,6 +13,8 @@ const props = defineProps({
     text: { type: String, required: true },
 })
 
+
+
 // 动态加载图片路径
 const imageSrc = computed(() => new URL(props.img, import.meta.url).href);
 </script>

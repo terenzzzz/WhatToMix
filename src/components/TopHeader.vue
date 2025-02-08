@@ -52,6 +52,13 @@
             </li>
 
             <li class="nav-item" >
+                <router-link to="/Draw" class="item text-decoration-none ">
+                    Draw
+                </router-link>
+            </li>
+
+
+            <li class="nav-item" >
                 <i class="bi bi-translate btn " data-bs-toggle="modal" data-bs-target="#languageModal"></i>
             </li>
         </ul>
