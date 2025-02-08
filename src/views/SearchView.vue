@@ -32,16 +32,31 @@
 
 
 
-            <div class="row w-100 mt-3 d-flex m-0" v-if="searchCocktailResult.length>0">
-                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-3" v-for="(cocktail, index) in searchCocktailResult" :key="index">
-                    <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
-                </div>
+            <div class="row w-100 mt-3 d-flex m-0" v-if="searchCocktailResult">
+                <template v-if="searchCocktailResult.length>0">
+                    <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-3" v-for="(cocktail, index) in searchCocktailResult" :key="index">
+                        <CocktailPreview :cock-tail="cocktail" style="height: 100%;" />
+                    </div>
+                </template>
+                <template v-else>
+                    <el-empty description="Can't find any drinks that match all your keywords, try input other words" />
+                </template>
             </div>
 
-            <div class="row w-100 mt-3 d-flex m-0" v-if="searchIngredientResult && searchIngredientResult.length>0">
-                <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(ingredient, index) in searchIngredientResult" :key="index">
-                    <IngredientPreview :ingredient="ingredient" style="height: 100%;" />
-                </div>
+
+            <div class="row w-100 mt-3 d-flex m-0" v-if="searchIngredientResult">
+                <template v-if="searchIngredientResult.length>0">
+                    <div class="col-6 col-md-4 col-xl-3 mb-3" v-for="(ingredient, index) in searchIngredientResult" :key="index">
+                        <IngredientPreview :ingredient="ingredient" style="height: 100%;" />
+                    </div>
+                </template>
+                <template v-else>
+                    <el-empty description="Can't find any ingredient that match all your keywords, try input other words" />
+                </template>
+            </div>
+
+            <div class="row w-100 mt-3 d-flex m-0" v-if="!searchCocktailResult && !searchIngredientResult">
+                <el-empty description="Can't find any drinks that match all your Ingredients, try select less Ingredients" />
             </div>
 
         </div>
@@ -61,8 +76,8 @@ import RockerSwitch from "@/components/RockerSwitch.vue";
 import IngredientPreview from "@/components/IngredientPreview.vue";
 
 let inputStr = ref("")
-let searchCocktailResult = ref([])
-let searchIngredientResult = ref([])
+let searchCocktailResult = ref(null)
+let searchIngredientResult = ref(null)
 const isIngredient = ref(false); // 用于接收子组件的状态
 
 // 监听 isIngredient 的变化
@@ -71,18 +86,22 @@ watch(isIngredient, (newVal, oldVal) => {
 });
 
 async function searchHandler() {
-    searchCocktailResult.value = []
-    searchIngredientResult.value = []
+    searchCocktailResult.value = null
+    searchIngredientResult.value = null
 
 
     if (inputStr.value){
         if (isIngredient.value){
             const response = await searchIngredientByName(inputStr.value); // 调用 API 获取食材详情
-            searchIngredientResult.value = response.data.ingredients;
-            console.log(response.data)
+            if (response.data.ingredients){
+                searchIngredientResult.value = response.data.ingredients;
+            }
         }else{
             const response = await search(inputStr.value)
-            searchCocktailResult.value = response.data.drinks
+            if (response.data.drinks){
+                searchCocktailResult.value = response.data.drinks
+            }
+
         }
     }
 
