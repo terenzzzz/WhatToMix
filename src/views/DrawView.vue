@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="position-relative">
-            <img src="../assets/bar_hero_6.png" class="img-fluid object-fit-cover w-100" style="height:30vh; filter: blur(5px)" />
+            <img src="../assets/bar_hero_7.png" class="img-fluid object-fit-cover w-100" style="height:30vh; filter: blur(5px)" />
             <h1
                 class="position-absolute text-center text-white"
                 style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
