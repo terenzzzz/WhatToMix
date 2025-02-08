@@ -1,11 +1,16 @@
 // 导入 axios配置
 import request from "../utils/request"
-import requestForRapid from "@/utils/requestForRapid.js";
+
 
 export const search = (name) => request({
     url: '/search.php',
     method: 'GET',
     params: {s: name}
+});
+
+export const popular = () => request({
+    url: '/popular.php',
+    method: 'GET',
 });
 
 
@@ -87,19 +92,3 @@ export const filterByCategory = (category) => request({
         c: category,
     },
 });
-
-export const filterByMultipleParams = (ingredients, alcoholic, categories, glassType) => request({
-    url: '/filter.php',
-    method: 'GET',
-    params: {
-        i: ingredients.join(','),  // 配料，多个配料用逗号分隔，无需编码
-        a: alcoholic.join(','),    // 酒精类型（Alcoholic）
-        c: categories.join(','),   // 类别（Categories）
-        g: glassType.join(','),    // 酒杯类型（Glass Type）
-    },
-});
-
-
-
-// https://www.thecocktaildb.com/api/json/v2/8673533/filter.php?i=Gin&a=Alcoholic&c=Cocktail&g=Highball%2520glass //不可行
-// https://www.thecocktaildb.com/api/json/v2/8673533/filter.php?i=Gin&a=Alcoholic&c=Cocktail&g=Highball+glass  //可行

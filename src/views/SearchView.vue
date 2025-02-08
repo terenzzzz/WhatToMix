@@ -68,9 +68,9 @@
 
 
 <script setup>
-import InputBox from "@/components/InputBox.vue";
-import {ref, watch} from "vue";
-import {search, searchIngredientByName} from "@/api/cocktails.js";
+
+import {onMounted, ref, watch} from "vue";
+import {popular, search, searchIngredientByName} from "@/api/cocktails.js";
 import CocktailPreview from "@/components/CocktailPreview.vue";
 import RockerSwitch from "@/components/RockerSwitch.vue";
 import IngredientPreview from "@/components/IngredientPreview.vue";
@@ -80,6 +80,11 @@ let searchCocktailResult = ref(null)
 let searchIngredientResult = ref(null)
 const isIngredient = ref(false); // 用于接收子组件的状态
 
+
+onMounted(async () => {
+    const response = await popular(); // 调用 API 获取配方详情
+    searchCocktailResult.value = response.data.drinks; // 保存数据到 recipeDetail
+});
 // 监听 isIngredient 的变化
 watch(isIngredient, (newVal, oldVal) => {
     searchHandler()
@@ -104,7 +109,6 @@ async function searchHandler() {
 
         }
     }
-
 }
 
 
