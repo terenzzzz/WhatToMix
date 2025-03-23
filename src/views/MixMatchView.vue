@@ -77,9 +77,6 @@ import CocktailPreview from "@/components/CocktailPreview.vue";
 
 const ingredients = ref([])
 const selectedIngredients = ref([])
-
-
-
 const filteredResult = ref([])
 
 onMounted(async () => {

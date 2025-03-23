@@ -11,8 +11,8 @@ import DrawView from "@/views/DrawView.vue";
 
 
 const router = createRouter({
-  // history: createWebHistory(import.meta.env.BASE_URL), //开发使用根路径
-  history: createWebHistory('/whatToMix/'), //部署使用 /whatToMix/ 路径作为 应用的基础路径
+  history: createWebHistory(import.meta.env.BASE_URL), //开发使用根路径
+  // history: createWebHistory('/whatToMix/'), //部署使用 /whatToMix/ 路径作为 应用的基础路径
 
   routes: [
     {
