@@ -8,7 +8,7 @@ This application is an online query and recommendation tool designed for cocktai
 
 The Cocktail DB API ( https://www.thecocktaildb.com/api.php )
 
-Project URL: ( whattomix.terenzzzz.cn )
+Project URL: ( https://whattomix.terenzzzz.cn )
 
 # 核心功能 | Core Features
 
